@@ -1,0 +1,61 @@
+Order_ID,Order_Date,Ship_Date,Ship_Mode,Customer_ID,Segment,Country,City,State,Postal_Code,Region,Product_ID,Category,Sub_Category,Product_Name,Sales,Quantity,Discount,Profit
+CA-10000,2020-01-01,2020-01-03,First Class,CUST-0,Corporate,United States,Phoenix,California,49384,West,PRD-0,Office Supplies,Phones,Paper Binder,439.96,1,0.3,105.08
+CA-10001,2020-01-02,2020-01-04,Second Class,CUST-1,Consumer,United States,Chicago,Texas,57254,West,PRD-1,Technology,Binders,Phone Stand,370.18,6,0.21,126.02
+CA-10002,2020-01-03,2020-01-05,First Class,CUST-2,Corporate,United States,Houston,Illinois,31918,West,PRD-2,Office Supplies,Accessories,Phone Stand,403.71,4,0.16,3.24
+CA-10003,2020-01-04,2020-01-06,First Class,CUST-3,Corporate,United States,Chicago,New York,95981,East,PRD-3,Office Supplies,Chairs,Paper Binder,148.2,1,0.09,-15.91
+CA-10004,2020-01-05,2020-01-07,Second Class,CUST-4,Corporate,United States,Chicago,Texas,70713,Central,PRD-4,Technology,Accessories,Monitor,96.95,7,0.24,-46.36
+CA-10005,2020-01-06,2020-01-08,Second Class,CUST-5,Corporate,United States,New York,New York,40306,West,PRD-5,Office Supplies,Binders,Phone Stand,377.8,9,0.21,37.65
+CA-10006,2020-01-07,2020-01-09,First Class,CUST-6,Corporate,United States,Chicago,New York,26646,South,PRD-6,Office Supplies,Binders,Monitor,405.35,4,0.05,97.48
+CA-10007,2020-01-08,2020-01-10,Standard Class,CUST-7,Corporate,United States,Phoenix,California,56843,Central,PRD-7,Technology,Binders,Phone Stand,495.35,4,0.27,48.06
+CA-10008,2020-01-09,2020-01-11,First Class,CUST-8,Corporate,United States,Chicago,Texas,26371,Central,PRD-8,Office Supplies,Accessories,Phone Stand,212.18,6,0.25,59.37
+CA-10009,2020-01-10,2020-01-12,First Class,CUST-9,Consumer,United States,New York,Texas,87371,West,PRD-9,Technology,Binders,Office Desk,192.29,3,0.28,176.04
+CA-10010,2020-01-11,2020-01-13,First Class,CUST-10,Home Office,United States,Phoenix,California,12049,East,PRD-10,Office Supplies,Accessories,Phone Stand,390.44,6,0.22,37.06
+CA-10011,2020-01-12,2020-01-14,First Class,CUST-11,Corporate,United States,Los Angeles,Illinois,41616,West,PRD-11,Technology,Binders,Ergonomic Chair,176.99,7,0.18,78.5
+CA-10012,2020-01-13,2020-01-15,Second Class,CUST-12,Corporate,United States,Chicago,New York,30932,East,PRD-12,Technology,Phones,Paper Binder,466.07,3,0.13,145.91
+CA-10013,2020-01-14,2020-01-16,First Class,CUST-13,Corporate,United States,New York,Arizona,39855,South,PRD-13,Office Supplies,Binders,Paper Binder,430.62,7,0.28,49.14
+CA-10014,2020-01-15,2020-01-17,Standard Class,CUST-14,Corporate,United States,Los Angeles,New York,71434,Central,PRD-14,Office Supplies,Accessories,Monitor,220.21,3,0.26,105.52
+CA-10015,2020-01-16,2020-01-18,Second Class,CUST-15,Corporate,United States,Los Angeles,New York,82694,South,PRD-15,Office Supplies,Storage,Phone Stand,377.93,2,0.01,165.59
+CA-10016,2020-01-17,2020-01-19,Standard Class,CUST-16,Corporate,United States,Houston,Illinois,53016,East,PRD-16,Furniture,Binders,Ergonomic Chair,379.73,4,0.01,187.38
+CA-10017,2020-01-18,2020-01-20,Standard Class,CUST-17,Home Office,United States,Phoenix,New York,17400,East,PRD-17,Furniture,Storage,Monitor,60.53,8,0.11,-13.23
+CA-10018,2020-01-19,2020-01-21,Standard Class,CUST-18,Home Office,United States,Chicago,California,52642,South,PRD-18,Furniture,Phones,Office Desk,452.25,9,0.24,181.65
+CA-10019,2020-01-20,2020-01-22,Standard Class,CUST-19,Corporate,United States,New York,California,25151,East,PRD-19,Technology,Chairs,Monitor,257.57,7,0.3,73.03
+CA-10020,2020-01-21,2020-01-23,Second Class,CUST-20,Home Office,United States,Houston,Texas,61407,South,PRD-20,Office Supplies,Phones,Monitor,414.96,1,0.05,14.56
+CA-10021,2020-01-22,2020-01-24,Second Class,CUST-21,Consumer,United States,Phoenix,Arizona,76690,Central,PRD-21,Technology,Binders,Phone Stand,166.82,3,0.18,64.78
+CA-10022,2020-01-23,2020-01-25,Standard Class,CUST-22,Corporate,United States,Houston,New York,14499,South,PRD-22,Furniture,Storage,Office Desk,448.81,9,0.11,195.01
+CA-10023,2020-01-24,2020-01-26,Standard Class,CUST-23,Consumer,United States,Phoenix,New York,16295,Central,PRD-23,Office Supplies,Storage,Monitor,200.71,1,0.29,73.15
+CA-10024,2020-01-25,2020-01-27,Second Class,CUST-24,Consumer,United States,Phoenix,Illinois,69040,South,PRD-24,Technology,Accessories,Ergonomic Chair,15.31,9,0.25,32.19
+CA-10025,2020-01-26,2020-01-28,Second Class,CUST-25,Corporate,United States,Chicago,California,22183,East,PRD-25,Office Supplies,Storage,Ergonomic Chair,453.64,8,0.25,108.35
+CA-10026,2020-01-27,2020-01-29,Second Class,CUST-26,Home Office,United States,Phoenix,Arizona,39299,South,PRD-26,Technology,Accessories,Paper Binder,54.73,1,0.14,10.04
+CA-10027,2020-01-28,2020-01-30,First Class,CUST-27,Consumer,United States,Houston,Texas,22874,East,PRD-27,Office Supplies,Chairs,Office Desk,166.46,6,0.12,-31.03
+CA-10028,2020-01-29,2020-01-31,First Class,CUST-28,Corporate,United States,Phoenix,California,42711,South,PRD-28,Furniture,Binders,Office Desk,475.53,5,0.08,-17.78
+CA-10029,2020-01-30,2020-02-01,First Class,CUST-29,Consumer,United States,Chicago,Texas,15539,South,PRD-29,Furniture,Accessories,Paper Binder,475.8,6,0.02,-17.99
+CA-10030,2020-01-31,2020-02-02,Standard Class,CUST-30,Consumer,United States,Chicago,Illinois,63351,West,PRD-30,Office Supplies,Chairs,Monitor,290.98,5,0.26,-12.02
+CA-10031,2020-02-01,2020-02-03,First Class,CUST-31,Consumer,United States,Houston,Illinois,71267,East,PRD-31,Technology,Storage,Office Desk,319.6,6,0.24,-15.29
+CA-10032,2020-02-02,2020-02-04,Standard Class,CUST-32,Consumer,United States,Los Angeles,New York,58354,West,PRD-32,Furniture,Storage,Ergonomic Chair,229.74,5,0.3,110.22
+CA-10033,2020-02-03,2020-02-05,Standard Class,CUST-33,Home Office,United States,Los Angeles,Arizona,12557,East,PRD-33,Furniture,Chairs,Ergonomic Chair,153.67,5,0.3,-4.53
+CA-10034,2020-02-04,2020-02-06,First Class,CUST-34,Consumer,United States,Phoenix,Texas,48360,West,PRD-34,Furniture,Storage,Phone Stand,171.05,4,0.17,36.42
+CA-10035,2020-02-05,2020-02-07,Standard Class,CUST-35,Consumer,United States,New York,California,92018,Central,PRD-35,Office Supplies,Chairs,Office Desk,339.53,3,0.23,174.2
+CA-10036,2020-02-06,2020-02-08,First Class,CUST-36,Consumer,United States,Phoenix,Illinois,12200,South,PRD-36,Office Supplies,Accessories,Monitor,378.66,3,0.28,68.49
+CA-10037,2020-02-07,2020-02-09,First Class,CUST-37,Home Office,United States,Houston,New York,78497,East,PRD-37,Technology,Accessories,Paper Binder,397.87,4,0.25,116.89
+CA-10038,2020-02-08,2020-02-10,Second Class,CUST-38,Consumer,United States,Houston,New York,56975,East,PRD-38,Technology,Chairs,Paper Binder,396.91,9,0.07,-6.92
+CA-10039,2020-02-09,2020-02-11,First Class,CUST-39,Consumer,United States,Houston,Texas,31357,South,PRD-39,Technology,Accessories,Monitor,54.69,2,0.14,-1.93
+CA-10040,2020-02-10,2020-02-12,Second Class,CUST-40,Home Office,United States,Houston,Illinois,87505,East,PRD-40,Office Supplies,Accessories,Phone Stand,252.27,9,0.04,-39.78
+CA-10041,2020-02-11,2020-02-13,First Class,CUST-41,Home Office,United States,Houston,Arizona,12869,East,PRD-41,Office Supplies,Accessories,Paper Binder,38.2,1,0.29,-7.77
+CA-10042,2020-02-12,2020-02-14,First Class,CUST-42,Home Office,United States,Chicago,Illinois,71135,West,PRD-42,Technology,Phones,Office Desk,279.27,1,0.18,19.65
+CA-10043,2020-02-13,2020-02-15,Second Class,CUST-43,Consumer,United States,Los Angeles,Texas,60108,East,PRD-43,Technology,Binders,Phone Stand,226.35,5,0.07,-5.75
+CA-10044,2020-02-14,2020-02-16,Second Class,CUST-44,Home Office,United States,Houston,Texas,48467,Central,PRD-44,Office Supplies,Storage,Office Desk,444.98,6,0.2,-27.82
+CA-10045,2020-02-15,2020-02-17,First Class,CUST-45,Home Office,United States,New York,Illinois,33328,Central,PRD-45,Technology,Phones,Ergonomic Chair,181.95,6,0.19,-19.84
+CA-10046,2020-02-16,2020-02-18,Standard Class,CUST-46,Consumer,United States,New York,Texas,96831,South,PRD-46,Furniture,Accessories,Phone Stand,67.36,3,0.11,65.19
+CA-10047,2020-02-17,2020-02-19,Second Class,CUST-47,Home Office,United States,New York,Illinois,13987,East,PRD-47,Office Supplies,Chairs,Paper Binder,80.07,7,0.03,1.58
+CA-10048,2020-02-18,2020-02-20,Standard Class,CUST-48,Consumer,United States,New York,California,68871,South,PRD-48,Technology,Accessories,Phone Stand,383.14,9,0.2,41.07
+CA-10049,2020-02-19,2020-02-21,Standard Class,CUST-49,Corporate,United States,Chicago,Illinois,32399,Central,PRD-49,Office Supplies,Binders,Phone Stand,312.93,8,0.16,75.85
+CA-10050,2020-02-20,2020-02-22,Standard Class,CUST-50,Home Office,United States,New York,Illinois,56214,East,PRD-50,Furniture,Accessories,Phone Stand,59.55,6,0.23,122.6
+CA-10051,2020-02-21,2020-02-23,Second Class,CUST-51,Corporate,United States,Houston,Texas,96416,East,PRD-51,Office Supplies,Chairs,Phone Stand,51.21,8,0.16,-40.17
+CA-10052,2020-02-22,2020-02-24,Standard Class,CUST-52,Consumer,United States,Phoenix,Texas,80271,South,PRD-52,Office Supplies,Binders,Office Desk,353.47,5,0.26,149.85
+CA-10053,2020-02-23,2020-02-25,Second Class,CUST-53,Home Office,United States,New York,New York,54064,Central,PRD-53,Office Supplies,Accessories,Ergonomic Chair,45.65,8,0.17,106.98
+CA-10054,2020-02-24,2020-02-26,Standard Class,CUST-54,Consumer,United States,Chicago,New York,80091,East,PRD-54,Office Supplies,Binders,Monitor,412.71,4,0.17,-29.56
+CA-10055,2020-02-25,2020-02-27,First Class,CUST-55,Corporate,United States,Chicago,California,50818,South,PRD-55,Furniture,Storage,Phone Stand,356.06,8,0.26,168.39
+CA-10056,2020-02-26,2020-02-28,First Class,CUST-56,Consumer,United States,New York,New York,55525,Central,PRD-56,Office Supplies,Storage,Paper Binder,49.86,2,0.12,180.22
+CA-10057,2020-02-27,2020-02-29,Second Class,CUST-57,Home Office,United States,Phoenix,Illinois,29830,South,PRD-57,Office Supplies,Accessories,Phone Stand,51.57,5,0.04,-34.73
+CA-10058,2020-02-28,2020-03-01,First Class,CUST-58,Home Office,United States,New York,Texas,27429,West,PRD-58,Technology,Binders,Paper Binder,493.45,9,0.01,19.22
+CA-10059,2020-02-29,2020-03-02,First Class,CUST-59,Corporate,United States,Chicago,New York,16893,East,PRD-59,Office Supplies,Chairs,Office Desk,193.39,4,0.23,151.55
