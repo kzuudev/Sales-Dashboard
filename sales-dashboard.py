@@ -99,10 +99,37 @@ print("\nAnalyzing which products generate high sales but low profit")
 print(high_sales_low_profit_products[cols_to_show])
 
 
+# Analyze which discount ranges hurt profitability the most
 
+# -- Filtering and querying the dataset first based on discount range
+print("\n")
+discount_ranges_profit_data = """
+SELECT
+    CASE
+        WHEN Discount = 0 THEN 'No Discount'
+        WHEN Discount > 0 AND Discount <= 0.10 THEN 'Low (0–10%)'
+        WHEN Discount > 0.10 AND Discount <= 0.30 THEN 'Medium (10–30%)'
+        WHEN Discount > 0.30 AND Discount <= 0.50 THEN 'High (30–50%)'
+        ELSE 'Very High (>50%)'
+    END AS discount_range,
+    SUM(Sales) AS total_sales,
+    SUM(Profit) AS total_profit,
+    COUNT(*) AS order_count
+FROM superstore_sales
+GROUP BY discount_range
+ORDER BY discount_range;
+"""
 
+display_discount_ranges_profit = pd.read_sql_query(discount_ranges_profit_data, conn)
+print(display_discount_ranges_profit)
 
+# -- Apply Business Logic for Measure profit impact and Compare profit margin
 
+display_discount_ranges_profit['profit_margin'] = (display_discount_ranges_profit['total_profit'] / display_discount_ranges_profit['total_sales'])
+profit_margin = display_discount_ranges_profit[['discount_range', 'profit_margin']]
+
+print("\nAnalyzing which discount ranges hurt profitability the most")
+print(profit_margin)
 
 # Create Visualizations
 # result.plot(kind="bar", x="Category", y="TotalSales")
