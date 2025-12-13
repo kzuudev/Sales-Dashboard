@@ -39,7 +39,6 @@ print(result.head())
 # Analyze Trends
 
 # -- Analyze the sales of Office Supplies per year and months
-
 office_supplies_sales_year = "SELECT strftime('%Y', Order_Date) AS Year, SUM(Sales) AS TotalSalesPerYear FROM superstore_sales WHERE Category = 'Office Supplies' GROUP BY Year ORDER BY Year"
 display_office_supplies_sales_per_year = pd.read_sql_query(office_supplies_sales_year, conn)
 print("Total sales of Office Supplies Per Year", "\n", display_office_supplies_sales_per_year, "\n")
@@ -58,8 +57,6 @@ furniture_sales_month = "SELECT strftime('%m', Order_Date) AS Month, SUM(Sales) 
 display_furniture_sales_per_month = pd.read_sql_query(furniture_sales_month, conn)
 print("Total sales of Furniture Per Month", "\n", display_furniture_sales_per_month, "\n")
 
-
-
 # -- Analyze the sales of Technology per year and months
 technology_sales_year = "SELECT strftime('%Y', Order_Date) AS Year, SUM(Sales) AS TotalSalesPerYear FROM superstore_sales WHERE Category = 'Technology' GROUP BY Year ORDER BY Year"
 display_technology_sales_per_year = pd.read_sql_query(technology_sales_year, conn)
@@ -69,6 +66,44 @@ furniture_sales_month = "SELECT strftime('%m', Order_Date) AS Month, SUM(Sales) 
 display_technology_sales_per_month = pd.read_sql_query(furniture_sales_month, conn)
 print("Total sales of Technology Per Month", "\n", display_technology_sales_per_month, "\n")
 
+
+# Analyzing which products generate high sales but low profit
+
+# -- Analyze the dataset first by querying it
+high_sales_low_profit_products_data = "SELECT Product_Name, SUM(Sales) AS TotalProductSales, SUM(Profit) AS TotalProductProfit From superstore_sales GROUP BY Product_Name ORDER BY TotalProductProfit"
+display_high_sales_low_profit_products = pd.read_sql_query(high_sales_low_profit_products_data, conn)
+print(display_high_sales_low_profit_products)
+
+# -- Apply Business Logic to query the product that has high sales but low profit using Python
+high_sales = 400
+low_profit = 300
+
+cols_to_show = [
+    "Product_Name",
+    "Sales",
+    "Profit",
+    "flag_high_sales_low_profit"
+]
+
+df["flag_high_sales_low_profit"] = (
+    (df["Sales"] > high_sales) &
+    (df["Profit"] < low_profit)
+)
+
+high_sales_low_profit_products = (
+    df[df["flag_high_sales_low_profit"]]
+        .sort_values(by=["Sales", "Profit"], ascending=[False, True])
+)
+
+print("\nAnalyzing which products generate high sales but low profit")
+print(high_sales_low_profit_products[cols_to_show])
+
+
+
+
+
+
+
 # Create Visualizations
-#result.plot(kind="bar", x="Category", y="TotalSales")
-#plt.show()
+# result.plot(kind="bar", x="Category", y="TotalSales")
+# plt.show()
