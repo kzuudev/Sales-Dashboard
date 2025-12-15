@@ -124,13 +124,49 @@ display_discount_ranges_profit = pd.read_sql_query(discount_ranges_profit_data, 
 print(display_discount_ranges_profit)
 
 # -- Apply Business Logic for Measure profit impact and Compare profit margin
-
 display_discount_ranges_profit['profit_margin'] = (display_discount_ranges_profit['total_profit'] / display_discount_ranges_profit['total_sales'])
 profit_margin = display_discount_ranges_profit[['discount_range', 'profit_margin']]
 
 print("\nAnalyzing which discount ranges hurt profitability the most")
 print(profit_margin)
 
+print("\n")
+
+# Analyze which regions have high order volume but low average order value (where are we getting many orders, but each order is small)
+high_order_volume_low_avg_value = "SELECT Region, SUM(Sales) AS TotalRegionSales, SUM(Profit) AS TotalRegionProfit, COUNT(DISTINCT Order_ID) AS OrderCount, SUM(Sales) / COUNT(DISTINCT Order_ID) AS AverageOrderValue, SUM(Sales) / SUM(Profit) AS ProfitMargin From superstore_sales GROUP BY Region ORDER BY TotalRegionProfit"
+df_high_order_volume_low_avg_value = pd.read_sql_query(high_order_volume_low_avg_value, conn)
+print(df_high_order_volume_low_avg_value)
+
+
+# Apply Business logic for flagging high volume / low AOV Regions
+avg_orders = df_high_order_volume_low_avg_value['OrderCount'].mean()
+avg_aov = df_high_order_volume_low_avg_value['AverageOrderValue'].mean()
+
+df_high_order_volume_low_avg_value['region_flag'] = df_high_order_volume_low_avg_value.apply(
+    lambda x: 'High Order Volume / Low Order Value'
+    if x['OrderCount'] > avg_orders and x['AverageOrderValue'] < avg_aov
+    else 'Normal',
+    axis=1
+)
+
+print(df_high_order_volume_low_avg_value[['Region', 'region_flag']])
+
+
+
+
+# Analyze which customers are frequent buyers but have declining spend over time
+
 # Create Visualizations
 # result.plot(kind="bar", x="Category", y="TotalSales")
 # plt.show()
+
+plt.scatter(df_high_order_volume_low_avg_value['OrderCount'], df_high_order_volume_low_avg_value['AverageOrderValue'])
+plt.xlabel("Order Count")
+plt.ylabel("Average Order Value")
+plt.title('Order Volume vs AOV by Region')
+
+for i, region in enumerate(df_high_order_volume_low_avg_value['Region']):
+    plt.text(df_high_order_volume_low_avg_value['OrderCount'][i], df_high_order_volume_low_avg_value['AverageOrderValue'][i], region)
+
+
+plt.show()

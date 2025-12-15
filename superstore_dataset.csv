@@ -1,5 +1,5 @@
 Order_ID,Order_Date,Ship_Date,Ship_Mode,Customer_ID,Segment,Country,City,State,Postal_Code,Region,Product_ID,Category,Sub_Category,Product_Name,Sales,Quantity,Discount,Profit
-CA-10000,2020-01-01,2020-01-03,First Class,CUST-0,Corporate,United States,Phoenix,California,49384,West,PRD-0,Office Supplies,Phones,Paper Binder,439.96,1,0.3,105.08
+ ,2020-01-01,2020-01-03,First Class,CUST-0,Corporate,United States,Phoenix,California,49384,West,PRD-0,Office Supplies,Phones,Paper Binder,439.96,1,0.3,105.08
 CA-10001,2020-01-02,2020-01-04,Second Class,CUST-1,Consumer,United States,Chicago,Texas,57254,West,PRD-1,Technology,Binders,Phone Stand,370.18,6,0.21,126.02
 CA-10002,2020-01-03,2020-01-05,First Class,CUST-2,Corporate,United States,Houston,Illinois,31918,West,PRD-2,Office Supplies,Accessories,Phone Stand,403.71,4,0.16,3.24
 CA-10003,2020-01-04,2020-01-06,First Class,CUST-3,Corporate,United States,Chicago,New York,95981,East,PRD-3,Office Supplies,Chairs,Paper Binder,148.2,1,0.09,-15.91
