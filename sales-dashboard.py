@@ -36,45 +36,48 @@ query = "SELECT Category, SUM(Sales) AS TotalSales FROM superstore_sales GROUP B
 result = pd.read_sql_query(query, conn)
 print(result.head())
 
+
+
+
 # Analyze Trends
 
 # -- Analyze the sales of Office Supplies per year and months
 office_supplies_sales_year = "SELECT strftime('%Y', Order_Date) AS Year, SUM(Sales) AS TotalSalesPerYear FROM superstore_sales WHERE Category = 'Office Supplies' GROUP BY Year ORDER BY Year"
-display_office_supplies_sales_per_year = pd.read_sql_query(office_supplies_sales_year, conn)
-print("Total sales of Office Supplies Per Year", "\n", display_office_supplies_sales_per_year, "\n")
+df_office_supplies_sales_per_year = pd.read_sql_query(office_supplies_sales_year, conn)
+print("Total sales of Office Supplies Per Year", "\n", df_office_supplies_sales_per_year, "\n")
 
 office_supplies_sales_month = "SELECT strftime('%m', Order_Date) AS Month, SUM(Sales) AS TotalSalesPerMonth FROM superstore_sales WHERE Category = 'Office Supplies' GROUP BY Month ORDER BY Month"
-display_furniture_sales_per_month = pd.read_sql_query(office_supplies_sales_month, conn)
-print("Total sales of Office Supplies Per Month", "\n", display_furniture_sales_per_month, "\n")
+df_furniture_sales_per_month = pd.read_sql_query(office_supplies_sales_month, conn)
+print("Total sales of Office Supplies Per Month", "\n", df_furniture_sales_per_month, "\n")
 
 
 # -- Analyze the sales of Furniture per year and months
 furniture_sales_year = "SELECT strftime('%Y', Order_Date) AS Year, SUM(Sales) AS TotalSalesPerYear FROM superstore_sales WHERE Category = 'Furniture' GROUP BY Year ORDER BY Year"
-display_furniture_sales_per_year = pd.read_sql_query(furniture_sales_year, conn)
-print("Total sales of Furniture Per Year", "\n", display_furniture_sales_per_year, "\n")
+df_furniture_sales_per_year = pd.read_sql_query(furniture_sales_year, conn)
+print("Total sales of Furniture Per Year", "\n", df_furniture_sales_per_year, "\n")
 
 furniture_sales_month = "SELECT strftime('%m', Order_Date) AS Month, SUM(Sales) AS TotalSalesPerMonth FROM superstore_sales WHERE Category = 'Furniture' GROUP BY Month ORDER BY Month"
-display_furniture_sales_per_month = pd.read_sql_query(furniture_sales_month, conn)
-print("Total sales of Furniture Per Month", "\n", display_furniture_sales_per_month, "\n")
+df_furniture_sales_per_month = pd.read_sql_query(furniture_sales_month, conn)
+print("Total sales of Furniture Per Month", "\n", df_furniture_sales_per_month, "\n")
 
 # -- Analyze the sales of Technology per year and months
 technology_sales_year = "SELECT strftime('%Y', Order_Date) AS Year, SUM(Sales) AS TotalSalesPerYear FROM superstore_sales WHERE Category = 'Technology' GROUP BY Year ORDER BY Year"
-display_technology_sales_per_year = pd.read_sql_query(technology_sales_year, conn)
-print("Total sales of Technology Per Year", "\n", display_technology_sales_per_year, "\n")
+df_technology_sales_per_year = pd.read_sql_query(technology_sales_year, conn)
+print("Total sales of Technology Per Year", "\n", df_technology_sales_per_year, "\n")
 
 furniture_sales_month = "SELECT strftime('%m', Order_Date) AS Month, SUM(Sales) AS TotalSalesPerMonth FROM superstore_sales WHERE Category = 'Technology' GROUP BY Month ORDER BY Month"
-display_technology_sales_per_month = pd.read_sql_query(furniture_sales_month, conn)
-print("Total sales of Technology Per Month", "\n", display_technology_sales_per_month, "\n")
+df_technology_sales_per_month = pd.read_sql_query(furniture_sales_month, conn)
+print("Total sales of Technology Per Month", "\n", df_technology_sales_per_month, "\n")
 
 
 # Analyzing which products generate high sales but low profit
 
 # -- Analyze the dataset first by querying it
 high_sales_low_profit_products_data = "SELECT Product_Name, SUM(Sales) AS TotalProductSales, SUM(Profit) AS TotalProductProfit From superstore_sales GROUP BY Product_Name ORDER BY TotalProductProfit"
-display_high_sales_low_profit_products = pd.read_sql_query(high_sales_low_profit_products_data, conn)
-print(display_high_sales_low_profit_products)
+df_high_sales_low_profit_products = pd.read_sql_query(high_sales_low_profit_products_data, conn)
+print(df_high_sales_low_profit_products)
 
-# -- Apply Business Logic to query the product that has high sales but low profit using Python
+# -- Apply Business Logic to query the product that has high sales but low profit
 high_sales = 400
 low_profit = 300
 
@@ -120,12 +123,12 @@ GROUP BY discount_range
 ORDER BY discount_range;
 """
 
-display_discount_ranges_profit = pd.read_sql_query(discount_ranges_profit_data, conn)
-print(display_discount_ranges_profit)
+df_discount_ranges_profit = pd.read_sql_query(discount_ranges_profit_data, conn)
+print(df_discount_ranges_profit)
 
 # -- Apply Business Logic for Measure profit impact and Compare profit margin
-display_discount_ranges_profit['profit_margin'] = (display_discount_ranges_profit['total_profit'] / display_discount_ranges_profit['total_sales'])
-profit_margin = display_discount_ranges_profit[['discount_range', 'profit_margin']]
+df_discount_ranges_profit['profit_margin'] = (df_discount_ranges_profit['total_profit'] / df_discount_ranges_profit['total_sales'])
+profit_margin = df_discount_ranges_profit[['discount_range', 'profit_margin']]
 
 print("\nAnalyzing which discount ranges hurt profitability the most")
 print(profit_margin)
@@ -154,19 +157,35 @@ print(df_high_order_volume_low_avg_value[['Region', 'region_flag']])
 
 
 
-# Analyze which customers are frequent buyers but have declining spend over time
+# Analyze which customers are frequent buyers but have declining spend over time (which customers buy often, but are spending less money each time as time goes on?)
+frequent_buyers_less_money_ot = "SELECT Customer_ID, strftime('%Y-%m', Order_Date) AS order_month, SUM(Sales) monthly_spend, COUNT(DISTINCT Order_ID) AS monthly_orders FROM superstore_sales GROUP BY Customer_ID, order_month"
+df_frequent_buyers_less_money_ot = pd.read_sql_query(frequent_buyers_less_money_ot, conn)
+print(df_frequent_buyers_less_money_ot)
+
+# Apply Business logic for high total order count
+avg_customer_order = df_frequent_buyers_less_money_ot['monthly_orders'].mean()
+
+df_frequent_buyers_less_money_ot['order_volume_flag'] = df_frequent_buyers_less_money_ot.apply(
+    lambda x: 'High Total Order'
+    if x['monthly_orders'] > avg_customer_order
+    else 'Low Total Order',
+    axis=1
+)
+
+print(df_frequent_buyers_less_money_ot[['Customer_ID', 'monthly_orders', 'monthly_spend', 'order_volume_flag']])
+
 
 # Create Visualizations
 # result.plot(kind="bar", x="Category", y="TotalSales")
 # plt.show()
 
-plt.scatter(df_high_order_volume_low_avg_value['OrderCount'], df_high_order_volume_low_avg_value['AverageOrderValue'])
-plt.xlabel("Order Count")
-plt.ylabel("Average Order Value")
-plt.title('Order Volume vs AOV by Region')
-
-for i, region in enumerate(df_high_order_volume_low_avg_value['Region']):
-    plt.text(df_high_order_volume_low_avg_value['OrderCount'][i], df_high_order_volume_low_avg_value['AverageOrderValue'][i], region)
-
-
-plt.show()
+# plt.scatter(df_high_order_volume_low_avg_value['OrderCount'], df_high_order_volume_low_avg_value['AverageOrderValue'])
+# plt.xlabel("Order Count")
+# plt.ylabel("Average Order Value")
+# plt.title('Order Volume vs AOV by Region')
+#
+# for i, region in enumerate(df_high_order_volume_low_avg_value['Region']):
+#     plt.text(df_high_order_volume_low_avg_value['OrderCount'][i], df_high_order_volume_low_avg_value['AverageOrderValue'][i], region)
+#
+#
+# plt.show()
